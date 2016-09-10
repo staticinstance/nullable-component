@@ -18,12 +18,12 @@ if (env['process.env.NODE_ENV'] !== '"production"') {
 // single-page apps that may serve index.html for nested URLs like /todos/42.
 // We can't use a relative path in HTML because we don't want to load something
 // like /todos/42/static/js/bundle.7289d.js. We have to know the root.
-var homepagePath = require(paths.appPackageJson).homepage;
-var publicPath = homepagePath ? url.parse(homepagePath).pathname : '/';
-if (!publicPath.endsWith('/')) {
-  // If we don't do this, file assets will get incorrect paths.
-  publicPath += '/';
-}
+// var homepagePath = require(paths.appPackageJson).homepage;
+// var publicPath = homepagePath ? url.parse(homepagePath).pathname : '/';
+// if (!publicPath.endsWith('/')) {
+//   // If we don't do this, file assets will get incorrect paths.
+//   publicPath += '/';
+// }
 
 // This is the production configuration.
 // It compiles slowly and is focused on producing a fast and minimal bundle.
@@ -37,7 +37,7 @@ module.exports = {
   // In production, we only want to load the polyfills and the app code.
   entry: [
     require.resolve('./polyfills'),
-    path.join(paths.appSrc, 'index')
+    path.join(paths.appSrc, 'nullable-component')
   ],
   output: {
     // The build folder.
@@ -48,7 +48,7 @@ module.exports = {
     filename: 'index.js',
     //chunkFilename: 'static/js/[name].[chunkhash:8].chunk.js',
     // We inferred the "public path" (such as / or /my-project) from homepage.
-    publicPath: publicPath,
+    //publicPath: publicPath,
     library: 'nullable-component',
     libraryTarget: "umd"
   },
