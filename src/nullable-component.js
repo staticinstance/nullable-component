@@ -1,3 +1,3 @@
 import React from 'react';
 
-export default props => props.cmp !== null ? <props.cmp /> : null
+export default props => props.cmp !== null ? <props.cmp {...props}/> : null
